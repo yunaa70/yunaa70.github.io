@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #ffffff;
-    --bg-alt: #f7f7f5;
+    --bg: #fdfcfa;
+    --bg-alt: #f4f1ec;
     --ink: #1a1a1a;
     --ink-soft: #555550;
     --ink-faint: #8a8a85;
-    --line: #e6e6e1;
-    --pass: #0f7a5a;
-    --pass-bg: #e8f4ee;
+    --line: #e9e4dc;
+    --pass: #bb5a30;
+    --pass-bg: #f6e9e1;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --mono: 'JetBrains Mono', monospace;
     --max: 760px;
@@ -37,7 +37,7 @@
   /* nav */
   nav {
     position: sticky; top: 0; z-index: 10;
-    background: rgba(255,255,255,0.85);
+    background: rgba(253,252,250,0.85);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
@@ -66,7 +66,7 @@
   .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 44px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .metric { padding: 22px 20px; border-right: 1px solid var(--line); }
   .metric:last-child { border-right: none; }
-  .metric .num { font-family: var(--mono); font-size: 28px; font-weight: 500; letter-spacing: -0.02em; }
+  .metric .num { font-family: var(--mono); font-size: 28px; font-weight: 500; letter-spacing: -0.02em; color: #bb5a30; }
   .metric .lbl { font-size: 13px; color: var(--ink-faint); margin-top: 4px; }
   @media (max-width: 560px) {
     .metrics { grid-template-columns: 1fr; }
@@ -107,7 +107,7 @@
   .proj li { font-size: 14px; color: var(--ink-soft); padding-left: 22px; position: relative; margin-bottom: 7px; }
   .proj li::before {
     content: "PASS"; position: absolute; left: 0; top: 0;
-    font-family: var(--mono); font-size: 9px; font-weight: 500; color: var(--pass);
+    font-family: var(--mono); font-size: 9px; font-weight: 500; color: #8a3c1d;
     background: var(--pass-bg); padding: 1px 4px; border-radius: 3px; line-height: 1.6;
   }
   .proj li b { color: var(--ink); font-weight: 500; }
