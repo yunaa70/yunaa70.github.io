@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>[이름] · QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f7f7f5;
+    --ink: #1a1a1a;
+    --ink-soft: #555550;
+    --ink-faint: #8a8a85;
+    --line: #e6e6e1;
+    --pass: #0f7a5a;
+    --pass-bg: #e8f4ee;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --max: 760px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  nav .brand { font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: -0.02em; }
+  nav .links { display: flex; gap: 22px; }
+  nav .links a { font-size: 14px; color: var(--ink-soft); text-decoration: none; transition: color .15s; }
+  nav .links a:hover { color: var(--ink); }
+  @media (max-width: 560px) { nav .links { display: none; } }
+
+  /* hero */
+  header { padding: 96px 0 72px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-family: var(--mono); font-size: 13px; color: var(--pass);
+    letter-spacing: 0.02em; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--pass); display: inline-block;
+  }
+  header h1 { font-size: 44px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 18px; }
+  header .tagline { font-size: 19px; color: var(--ink-soft); max-width: 560px; }
+  @media (max-width: 560px) { header h1 { font-size: 32px; } header { padding: 64px 0 48px; } }
+
+  /* metrics */
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 44px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .metric { padding: 22px 20px; border-right: 1px solid var(--line); }
+  .metric:last-child { border-right: none; }
+  .metric .num { font-family: var(--mono); font-size: 28px; font-weight: 500; letter-spacing: -0.02em; }
+  .metric .lbl { font-size: 13px; color: var(--ink-faint); margin-top: 4px; }
+  @media (max-width: 560px) {
+    .metrics { grid-template-columns: 1fr; }
+    .metric { border-right: none; border-bottom: 1px solid var(--line); }
+    .metric:last-child { border-bottom: none; }
+  }
+
+  /* sections */
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  .sec-label {
+    font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 28px;
+  }
+  h2 { font-size: 15px; }
+  .about p { font-size: 18px; color: var(--ink-soft); max-width: 620px; }
+  .about p + p { margin-top: 16px; }
+
+  /* experience */
+  .job { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
+  .job:first-of-type { border-top: none; padding-top: 0; }
+  .job .meta { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); }
+  .job .meta .co { color: var(--ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .job h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+  .job ul { list-style: none; }
+  .job li { font-size: 15px; color: var(--ink-soft); padding-left: 18px; position: relative; margin-bottom: 6px; }
+  .job li::before { content: ""; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+  .job li b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 560px) { .job { grid-template-columns: 1fr; gap: 10px; } }
+
+  /* projects */
+  .proj { border: 1px solid var(--line); border-radius: 12px; padding: 26px; margin-bottom: 18px; transition: border-color .15s; }
+  .proj:hover { border-color: #cfcfc8; }
+  .proj-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
+  .proj h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .proj .period { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); white-space: nowrap; }
+  .proj .desc { font-size: 15px; color: var(--ink-soft); margin-bottom: 16px; }
+  .proj ul { list-style: none; margin-bottom: 18px; }
+  .proj li { font-size: 14px; color: var(--ink-soft); padding-left: 22px; position: relative; margin-bottom: 7px; }
+  .proj li::before {
+    content: "PASS"; position: absolute; left: 0; top: 0;
+    font-family: var(--mono); font-size: 9px; font-weight: 500; color: var(--pass);
+    background: var(--pass-bg); padding: 1px 4px; border-radius: 3px; line-height: 1.6;
+  }
+  .proj li b { color: var(--ink); font-weight: 500; }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .stack span { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); background: var(--bg-alt); padding: 3px 9px; border-radius: 5px; }
+  .proj-links { display: flex; gap: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .proj-links a { font-size: 14px; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+  .proj-links a:hover { color: var(--pass); }
+  .proj-links a span { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); }
+
+  /* skills */
+  .skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .skill-col h4 { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .skill-col p { font-size: 15px; color: var(--ink-soft); }
+  @media (max-width: 560px) { .skill-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+  /* contact */
+  .contact { padding: 72px 0; border-bottom: none; }
+  .contact h2 { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .contact a.mail { font-family: var(--mono); font-size: 17px; color: var(--pass); text-decoration: none; border-bottom: 1px solid transparent; }
+  .contact a.mail:hover { border-bottom-color: var(--pass); }
+  .contact .also { margin-top: 14px; font-size: 14px; color: var(--ink-faint); }
+  .contact .also a { color: var(--ink-soft); }
+
+  footer { padding: 28px 0 48px; }
+  footer .wrap { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">[이름].qa</span>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Available for opportunities</span>
+    <h1>[이름]</h1>
+    <p class="tagline">결함을 늦게 찾는 비용을 아는 QA 엔지니어. 수동 검증을 자동화로 옮기고, 릴리즈 품질을 수치로 관리합니다.</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="num">2.5<span style="font-size:18px">yr</span></div>
+        <div class="lbl">QA 경력</div>
+      </div>
+      <div class="metric">
+        <div class="num">300+</div>
+        <div class="lbl">사전 차단한 결함</div>
+      </div>
+      <div class="metric">
+        <div class="num">40%</div>
+        <div class="lbl">회귀 테스트 시간 단축</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="sec-label">About</div>
+    <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">소개</h2>
+    <p>[여기에 한 문단. 무엇을 테스트했고, 어떤 문제를 발견·해결했고, 팀에 어떤 프로세스를 남겼는지 — "꼼꼼합니다" 대신 결과로 적기.]</p>
+    <p>예) 커머스·핀테크 도메인에서 결제 플로우 중심으로 테스트를 설계했고, 수동 회귀 테스트를 Appium 기반 자동화로 전환해 릴리즈 주기를 안정화했습니다.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-label">Experience</div>
+
+    <div class="job">
+      <div class="meta">
+        <span class="co">[회사명]</span>
+        2023.03 — 현재
+      </div>
+      <div>
+        <h3>QA Engineer</h3>
+        <ul>
+          <li>출시 전 <b>크리티컬 결함 12건 사전 차단</b>, 결제 장애 0건 유지</li>
+          <li>회귀 테스트 자동화로 <b>테스트 소요 시간 40% 단축</b></li>
+          <li>버그 리포트 표준 양식 도입 → 개발팀 재현 시간 감소</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="meta">
+        <span class="co">[이전 회사명]</span>
+        2022.01 — 2023.02
+      </div>
+      <div>
+        <h3>QA</h3>
+        <ul>
+          <li>모바일 앱 테스트케이스 <b>450건 설계·유지보수</b></li>
+          <li>릴리즈 2주 주기 회귀 테스트 전담</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-label">Projects</div>
+
+    <div class="proj">
+      <div class="proj-top">
+        <h3>커머스 앱 QA & 회귀 자동화</h3>
+        <span class="period">2023.03 — 2024.06</span>
+      </div>
+      <p class="desc">iOS/Android 쇼핑 앱의 결제·주문 플로우 테스트 담당. 수동 회귀를 자동화로 전환.</p>
+      <ul>
+        <li>핵심 플로우 <b>테스트케이스 450건</b> 설계 및 유지보수</li>
+        <li>Appium 기반 회귀 자동화 구축, <b>실행 시간 40% 단축</b></li>
+        <li>출시 블로커급 <b>크리티컬 버그 12건</b> 사전 발견</li>
+      </ul>
+      <div class="stack">
+        <span>Appium</span><span>Selenium</span><span>Jira</span><span>TestRail</span><span>Postman</span>
+      </div>
+      <div class="proj-links">
+        <a href="#">상세 테스트 문서 <span>↗ Notion</span></a>
+        <a href="#">자동화 코드 <span>↗ GitHub</span></a>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-top">
+        <h3>핀테크 결제 API 테스트</h3>
+        <span class="period">2022.08 — 2023.02</span>
+      </div>
+      <p class="desc">결제 API 응답값 검증 및 엣지케이스 테스트 설계. 개발팀과 QA 프로세스 정립.</p>
+      <ul>
+        <li>API 테스트 시나리오 <b>200건</b> 설계, 엣지케이스 커버리지 확보</li>
+        <li>버그 재현 리포트 표준화로 핸드오프 효율 개선</li>
+      </ul>
+      <div class="stack">
+        <span>Postman</span><span>Swagger</span><span>Charles</span><span>Confluence</span>
+      </div>
+      <div class="proj-links">
+        <a href="#">상세 테스트 문서 <span>↗ Notion</span></a>
+        <a href="#">자동화 코드 <span>↗ GitHub</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label">Skills</div>
+    <div class="skill-grid">
+      <div class="skill-col">
+        <h4>Test Design</h4>
+        <p>테스트 전략 수립, 케이스 설계, 엣지케이스 도출, 회귀 범위 산정, 리스크 기반 우선순위</p>
+      </div>
+      <div class="skill-col">
+        <h4>Automation</h4>
+        <p>Appium, Selenium, Python, API 자동화(Postman/Swagger), CI 연동 회귀</p>
+      </div>
+      <div class="skill-col">
+        <h4>Tools</h4>
+        <p>Jira, TestRail, Confluence, Charles Proxy, Git</p>
+      </div>
+      <div class="skill-col">
+        <h4>Domain</h4>
+        <p>커머스, 핀테크/결제, 모바일 앱(iOS·Android)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-label">Contact</div>
+    <h2>함께 품질을 만들 기회를 찾고 있어요.</h2>
+    <a class="mail" href="mailto:[이메일]">[이메일]</a>
+    <p class="also">또는 <a href="#">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">Notion</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 [이름]</span>
+    <span>Built with HTML/CSS</span>
+  </div>
+</footer>
+
+</body>
+</html>
