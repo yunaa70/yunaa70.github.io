@@ -67,12 +67,12 @@
   /* ---------- hero (report title block) ---------- */
   .hero-top { display: flex; gap: 40px; align-items: flex-start; justify-content: space-between; }
   .hero-text { flex: 1; min-width: 0; }
-  .hero-photo { flex-shrink: 0; width: 132px; }
-  .hero-photo img { width: 132px; height: 168px; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); display: block; }
+  .hero-photo { flex-shrink: 0; width: 220px; }
+  .hero-photo img { width: 220px; height: 300px; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); display: block; }
   @media (max-width: 640px) {
     .hero-top { flex-direction: row-reverse; gap: 20px; align-items: center; }
-    .hero-photo { width: 92px; }
-    .hero-photo img { width: 92px; height: 118px; }
+    .hero-photo { width: 110px; }
+    .hero-photo img { width: 110px; height: 150px; }
   }
   header { padding: 88px 0 72px; }
   .doc-head {
@@ -411,7 +411,7 @@
       <h3>잡코딩빌리지 · 검증 구조 설계와 결함 사전 차단</h3>
       <p class="desc">기획서만 있고 검증 기준이 없던 상태에서, 테스트 가능한 검증 구조를 설계한 경험. (태블릿 코딩 학습 앱 · 신규 런칭)</p>
       <ul>
-        <li>기능 · 시나리오 · 환경 · 정책 <b>4축 체크리스트 설계</b>로 누락 없는 검증 범위 확보</li>
+        <li>기능 · 시나리오 · 환경 · 예외 조건을 포괄하는 <b>체크리스트 설계</b>로 누락 없는 검증 범위 확보</li>
         <li>런칭 전 <b>결함 30건+ 사전 검출</b></li>
         <li>태블릿 실기기 6종 × OS 2종 환경 구성, 6인팀 Main 순환</li>
       </ul>
@@ -472,7 +472,7 @@
     <div class="skill-grid reveal">
       <div class="skill-col">
         <h4>Test Design</h4>
-        <p>체크리스트 4축 설계(기능 · 시나리오 · 환경 · 정책), 엣지 케이스 도출, 시나리오 기반 검증 구조 설계</p>
+        <p>기능 · 시나리오 · 환경 · 예외 조건을 포괄하는 체크리스트 설계, 엣지 케이스 도출, 시나리오 기반 검증 구조 설계</p>
       </div>
       <div class="skill-col">
         <h4>Issue Analysis</h4>
@@ -573,8 +573,7 @@
       <span class="sec-no">07</span>
       <span class="sec-title">Contact</span>
     </div>
-    <h2 class="reveal">이슈를 끝까지 추적하는 QA,<br><em>함께하고 싶어요.</em></h2>
-    <p class="also reveal">상세 테스트 문서 · 버그 리포트는 <a href="#">Notion</a>에서 확인하실 수 있습니다.</p>
+    <h2 class="reveal">이슈를 끝까지 추적하는 QA,<em> 함께하고 싶어요.</em></h2>
   </div>
 </section>
 
