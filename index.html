@@ -65,6 +65,15 @@
   @media (max-width: 640px) { nav .links { display: none; } }
 
   /* ---------- hero (report title block) ---------- */
+  .hero-top { display: flex; gap: 40px; align-items: flex-start; justify-content: space-between; }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-photo { flex-shrink: 0; width: 132px; }
+  .hero-photo img { width: 132px; height: 168px; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); display: block; }
+  @media (max-width: 640px) {
+    .hero-top { flex-direction: row-reverse; gap: 20px; align-items: center; }
+    .hero-photo { width: 92px; }
+    .hero-photo img { width: 92px; height: 118px; }
+  }
   header { padding: 88px 0 72px; }
   .doc-head {
     font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint);
@@ -225,27 +234,33 @@
 
 <header>
   <div class="wrap">
-    <div class="doc-head reveal">
-      <span class="nm">강유나 · Yuna Kang</span>
-      <span class="sep">／</span><span>MOBILE QA ENGINEER</span>
-      <span class="sep">／</span><span>현직 QA · CASHWALK</span>
-      <span class="sep">／</span><span class="ac">ISTQB CTFL</span>
-      <span class="sep">／</span><span>SEOUL</span>
+    <div class="hero-top">
+      <div class="hero-text">
+        <div class="doc-head reveal">
+          <span class="nm">강유나 · Yuna Kang</span>
+          <span class="sep">／</span><span>MOBILE QA ENGINEER</span>
+          <span class="sep">／</span><span class="ac">ISTQB CTFL</span>
+          <span class="sep">／</span><span>SEOUL</span>
+        </div>
+        <h1 class="thesis reveal">재현 불가능한 이슈를<br><em>재현 가능한 문제</em>로 바꿉니다.</h1>
+        <p class="hero-sub reveal">현재 캐시워크에서 iOS · Android · Web을 검증하고 있는 QA 엔지니어입니다. 보안 솔루션과 학습 서비스를 거치며 재현 · 분석 역량을 쌓았고, 수동 회귀 검증을 Appium 자동화 프레임워크로 옮겨 GitHub Actions CI까지 직접 구축했습니다.</p>
+      </div>
+      <div class="hero-photo reveal">
+        <img src="profile.jpg" alt="강유나 프로필 사진" />
+      </div>
     </div>
-    <h1 class="thesis reveal">재현 불가능한 이슈를<br><em>재현 가능한 문제</em>로 바꿉니다.</h1>
-    <p class="hero-sub reveal">현재 캐시워크에서 iOS · Android · Web을 검증하고 있는 QA 엔지니어입니다. 보안 솔루션과 학습 서비스를 거치며 재현 · 분석 역량을 쌓았고, 수동 회귀 검증을 Appium 자동화 프레임워크로 옮겨 GitHub Actions CI까지 직접 구축했습니다.</p>
 
     <div class="metrics reveal">
       <div class="metric">
-        <div class="num">2<small>년</small></div>
-        <div class="lbl">모바일 QA 경력</div>
+        <div class="num">2<small>년 · 현직</small></div>
+        <div class="lbl">모바일 QA</div>
       </div>
       <div class="metric">
-        <div class="num">30<small>건+</small></div>
-        <div class="lbl">런칭 전 결함 사전 차단</div>
+        <div class="num">35<small>케이스</small></div>
+        <div class="lbl">자동화 (POM · 6화면)</div>
       </div>
       <div class="metric">
-        <div class="num">4<small>종</small></div>
+        <div class="num">5<small>종</small></div>
         <div class="lbl">검증 환경</div>
       </div>
     </div>
@@ -330,7 +345,7 @@
       </div>
     </div>
     <div class="td-link reveal">
-      <a href="#">실제 테스트케이스 · 버그리포트 <span class="src">↗ Notion</span></a>
+      <a href="testcase_sample.xlsx" download>테스트 케이스 샘플 다운로드 <span class="src">↓ XLSX · MyDemoApp</span></a>
     </div>
   </div>
 </section>
@@ -388,9 +403,6 @@
         <div class="data-label">Tools · Env</div>
         <div class="stack"><span>Redmine</span><span>Magisk</span><span>Unc0ver</span><span>Dopamine</span><span>Parallel Space</span><span>Android</span><span>iOS</span></div>
       </div>
-      <div class="proj-links">
-        <a href="#">상세 테스트 문서 <span class="src">↗ Notion</span></a>
-      </div>
     </div>
 
     <!-- Project 02 -->
@@ -421,9 +433,6 @@
       <div class="stack-row">
         <div class="data-label">Tools · Env</div>
         <div class="stack"><span>Jira</span><span>태블릿 실기기 6종</span><span>OS 2종</span><span>체크리스트 설계</span></div>
-      </div>
-      <div class="proj-links">
-        <a href="#">체크리스트 · 버그리포트 <span class="src">↗ Notion</span></a>
       </div>
     </div>
 
