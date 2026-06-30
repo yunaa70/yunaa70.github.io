@@ -214,6 +214,36 @@
 
   footer { padding: 26px 0 56px; border-top: 1px solid var(--line); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+
+  /* ---------- print / PDF ---------- */
+  @media print {
+    @page { margin: 14mm 12mm; }
+    html { scroll-behavior: auto; }
+    body { font-size: 11pt; line-height: 1.55; background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    nav { display: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+
+    /* avoid breaking these across pages */
+    .cap, .proj, .job, .skill-full, .skill-col, .metric, .approach-col,
+    .ba-table, .dist, .map-row, .sec-head { break-inside: avoid; page-break-inside: avoid; }
+    section { break-inside: auto; border-top: 1px solid #ddd; padding: 22px 0; }
+    .proj { box-shadow: none !important; }
+
+    /* hero tidy */
+    header { padding: 8px 0 26px; }
+    .hero-top { gap: 24px; }
+    .hero-photo { width: 150px; }
+    .hero-photo img { width: 150px; height: 196px; }
+    .thesis { font-size: 30px; line-height: 1.18; }
+    .hero-sub { font-size: 12pt; }
+
+    /* keep section heading with its content */
+    .sec-head { break-after: avoid; page-break-after: avoid; }
+
+    /* let links show but plainly */
+    a { color: #1a1a17 !important; text-decoration: none; }
+    .proj-links a, .td-link a { border: 1px solid #ccc; padding: 4px 10px; border-radius: 6px; }
+  }
 </style>
 </head>
 <body>
@@ -256,8 +286,8 @@
         <div class="lbl">모바일 QA</div>
       </div>
       <div class="metric">
-        <div class="num">35<small>케이스</small></div>
-        <div class="lbl">자동화 (POM · 6화면)</div>
+        <div class="num">50<small>케이스</small></div>
+        <div class="lbl">앱 · 웹 자동화 (POM)</div>
       </div>
       <div class="metric">
         <div class="num">5<small>종</small></div>
@@ -378,9 +408,29 @@
       </div>
     </div>
 
-    <!-- Project 02 -->
+    <!-- Project 02 · Web Automation -->
     <div class="proj reveal">
-      <div class="proj-id">PROJECT 02 <span class="period">／ 2024.01 – 2025.01 ／ 잉카인터넷</span></div>
+      <div class="proj-id">PROJECT 02 <span class="period">／ 개인 프로젝트</span><span class="award">AUTOMATION</span></div>
+      <h3>웹 E2E 자동화 · Playwright</h3>
+      <p class="desc">앱 자동화와 같은 커머스 플로우를 웹에서도 검증하기 위해, SauceDemo를 대상으로 Playwright 기반 E2E 테스트를 직접 설계한 프로젝트. 동일 서비스를 앱 · 웹 양쪽에서 검증합니다.</p>
+      <ul>
+        <li><b>POM 기반</b> 로그인 · 상품 · 장바구니 · 결제 <b>15개 테스트케이스</b> (TC-ID 부여)</li>
+        <li><b>앱 자동화와 동일한 설계 철학</b> — tests / pages 레이어 분리, 테스트 독립성(매 테스트 새 로그인)</li>
+        <li><b>셀렉터 안정화</b> — data-test가 동작하지 않는 환경에서 id · class 셀렉터로 전환해 해결</li>
+        <li>GitHub Actions CI로 push마다 자동 실행, Playwright 내장 리포트(스크린샷 · 영상 · trace)로 결과 관리</li>
+      </ul>
+      <div class="stack-row">
+        <div class="data-label">Tech · Stack</div>
+        <div class="stack"><span>Playwright</span><span>JavaScript</span><span>POM</span><span>GitHub Actions CI</span></div>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/yunaa70/playwright_qa">웹 자동화 프로젝트 <span class="src">↗ GitHub</span></a>
+      </div>
+    </div>
+
+    <!-- Project 03 -->
+    <div class="proj reveal">
+      <div class="proj-id">PROJECT 03 <span class="period">／ 2024.01 – 2025.01 ／ 잉카인터넷</span></div>
       <h3>AppGuard · 재현 조건 탐색을 통한 원인 분석</h3>
       <p class="desc">정상 동작처럼 보이지만 검증이 불가능한 상태를 포착해, 재현 가능한 문제로 전환한 경험. (nProtect AppGuard — 금융 · 게임 다수 고객사 탑재 보안 솔루션)</p>
       <ul>
@@ -407,7 +457,7 @@
 
     <!-- Project 02 -->
     <div class="proj reveal">
-      <div class="proj-id">PROJECT 03 <span class="period">／ 2021.03 – 2022.02 ／ 웅진씽크빅</span></div>
+      <div class="proj-id">PROJECT 04 <span class="period">／ 2021.03 – 2022.02 ／ 웅진씽크빅</span></div>
       <h3>잡코딩빌리지 · 검증 구조 설계와 결함 사전 차단</h3>
       <p class="desc">기획서만 있고 검증 기준이 없던 상태에서, 테스트 가능한 검증 구조를 설계한 경험. (태블릿 코딩 학습 앱 · 신규 런칭)</p>
       <ul>
@@ -438,7 +488,7 @@
 
     <!-- Project 03 -->
     <div class="proj reveal">
-      <div class="proj-id">PROJECT 04 <span class="period">／ 2022.07 – 2022.09 ／ 게임톤 3기</span><span class="award">특별상</span></div>
+      <div class="proj-id">PROJECT 05 <span class="period">／ 2022.07 – 2022.09 ／ 게임톤 3기</span><span class="award">특별상</span></div>
       <h3>Mental Line · 사용자 분석 기반 경험 개선</h3>
       <p class="desc">반복 플레이로 난이도 체감이 어려워진 상황에서, 유저 데이터로 문제를 구체화해 개선안을 도출하고 최종 빌드에 반영한 경험. (Unity 모바일 게임 · 개발 + QA 병행 · 8인팀)</p>
       <ul>
@@ -480,7 +530,7 @@
       </div>
       <div class="skill-col">
         <h4>Tools</h4>
-        <p>Redmine · Jira — 재현 절차 및 로그 기반 이슈 등록 · 관리</p>
+        <p>Redmine · Jira · Notion — 재현 절차 및 로그 기반 이슈 등록 · 관리</p>
       </div>
       <div class="skill-col">
         <h4>Certification</h4>
@@ -490,7 +540,7 @@
       <div class="skill-full">
         <h4>Test Automation · 자동화</h4>
         <div class="chips">
-          <span>Appium</span><span>WebdriverIO</span><span>Mocha · Jest</span><span>POM 설계</span><span>Allure 리포팅</span><span>GitHub Actions CI</span><span>Appium MCP</span>
+          <span>Appium</span><span>WebdriverIO</span><span>Playwright</span><span>JavaScript</span><span>POM 설계</span><span>Allure 리포팅</span><span>GitHub Actions CI</span><span>Appium MCP</span>
         </div>
       </div>
 
@@ -573,7 +623,8 @@
       <span class="sec-no">07</span>
       <span class="sec-title">Contact</span>
     </div>
-    <h2 class="reveal">이슈를 끝까지 추적하는 QA,<em> 함께하고 싶어요.</em></h2>
+    <h2 class="reveal">이슈를 끝까지 추적하는 QA,<br><em>함께하고 싶어요.</em></h2>
+    <p class="also reveal">테스트 자동화 코드는 <a href="https://github.com/yunaa70/wdio-qa">GitHub</a>에서 확인하실 수 있습니다.</p>
   </div>
 </section>
 
